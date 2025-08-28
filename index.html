@@ -1,422 +1,405 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.4">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Allocation System</title>
+    <!-- Use the Inter font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .btn-select {
+            transition: transform 0.1s ease-in-out, background-color 0.2s, color 0.2s;
+        }
+        .btn-select.selected-demo {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .btn-select.selected-private {
+            background-color: #9333ea;
+            color: white;
+        }
+        .btn-select:hover {
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Startup Allocation System&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Use the Inter font from Google Fonts --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Load Tailwind CSS --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>body {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #f3f4f6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.container {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>max-width: 900px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-select {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transition: transform 0.1s ease-in-out, background-color 0.2s, color 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-select.selected-demo {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #4f46e5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-select.selected-private {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>background-color: #9333ea;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>color: white;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>.btn-select:hover {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>transform: translateY(-2px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body class="p-4 sm:p-8 flex items-center justify-center min-h-screen"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="container mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10 border border-gray-200"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;header class="text-center mb-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2"&gt;Startup Allocation Ballot&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;p class="text-gray-600 text-base sm:text-lg"&gt;Select exactly 10 for Demo Day and 20 for Private Pitch.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Name Input and Validation --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="name-section" class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input id="voter-name-input" type="text" placeholder="Enter your name" class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="start-voting-btn" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-lg hover:bg-indigo-700 transition duration-300"&gt;Start Voting&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="loading-section" class="text-center italic hidden"&gt;Checking name...&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- User Info &amp; Counters --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="app-counters" class="flex flex-col sm:flex-row justify-between items-center bg-gray-100 rounded-xl p-4 mb-6 shadow-inner hidden"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div id="user-info" class="text-xs text-gray-500 mb-2 sm:mb-0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p&gt;Authenticated as: &lt;span id="voter-name-display" class="font-semibold"&gt;&lt;/span&gt;&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="flex space-x-4"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full text-sm"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>Demo Day: &lt;span id="demo-day-count"&gt;0&lt;/span&gt; / 10</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;div class="bg-purple-600 text-white font-bold py-2 px-4 rounded-full text-sm"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>Private Pitch: &lt;span id="private-pitch-count"&gt;0&lt;/span&gt; / 20</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Startup List Container --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="startup-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 hidden"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Startups will be rendered here by JavaScript --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Submit Button --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="submit-section" class="flex justify-center mb-8 hidden"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button id="submit-btn" disabled</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>class="w-full sm:w-auto px-8 py-4 bg-gray-400 text-white font-bold text-lg rounded-full shadow-lg cursor-not-allowed"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>Submit Selections</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;!-- Message Box for user feedback --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div id="message-box" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4" onclick="this.classList.add('hidden')"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="bg-white p-6 rounded-xl shadow-2xl text-center max-w-sm w-full transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p id="message-text" class="text-lg font-medium text-gray-700 mb-4"&gt;&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button onclick="document.getElementById('message-box').classList.add('hidden')" class="px-6 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700"&gt;OK&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script type="module"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// IMPORTANT: Replace the placeholder below with your actual Firebase config object</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// You can find this in your Firebase console under Project Settings &gt; Your apps.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const firebaseConfig = {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>apiKey: "AIzaSyB3eQjDm-90XRwcekCrip1QJG56nbEpkMU",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>authDomain: "startup-voting-application.firebaseapp.com",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>projectId: "startup-voting-application",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>storageBucket: "startup-voting-application.firebasestorage.app",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>messagingSenderId: "920845970735",</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>appId: "1:920845970735:web:d31d6850da12f8c31285da"</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>};</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// --- DO NOT EDIT BELOW THIS LINE ---</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Global variables provided by the Canvas environment</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>// Use a self-invoking function to avoid global variable pollution</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>(async function() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Define the list of 50 startups</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const startups = [];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>for (let i = 1; i &lt;= 50; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>startups.push(`Startup ${i}`);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Get DOM elements</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const nameSectionEl = document.getElementById('name-section');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const voterNameInputEl = document.getElementById('voter-name-input');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const startVotingBtn = document.getElementById('start-voting-btn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const loadingSectionEl = document.getElementById('loading-section');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const appCountersEl = document.getElementById('app-counters');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const voterNameDisplayEl = document.getElementById('voter-name-display');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const startupListEl = document.getElementById('startup-list');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const submitSectionEl = document.getElementById('submit-section');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const submitBtn = document.getElementById('submit-btn');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const demoDayCountEl = document.getElementById('demo-day-count');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const privatePitchCountEl = document.getElementById('private-pitch-count');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const messageBoxEl = document.getElementById('message-box');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>const messageTextEl = document.getElementById('message-text');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let db;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let voterName = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let demoDayPitches = new Set();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let privatePitches = new Set();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>let hasVoted = false;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/**</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* Displays a message box with the given text.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* @param {string} message The message to display.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>*/</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function showMessage(message) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>messageTextEl.textContent = message;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>messageBoxEl.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>messageBoxEl.classList.add('flex');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/**</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* Renders the list of startups with selection buttons.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>*/</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function renderStartups() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>startupListEl.innerHTML = '';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>startups.forEach(startup =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const card = document.createElement('div');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>card.classList.add('bg-white', 'p-4', 'rounded-xl', 'shadow-md', 'border', 'border-gray-200', 'flex', 'flex-col', 'justify-between');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>card.dataset.startup = startup;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const title = document.createElement('h3');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title.classList.add('text-lg', 'font-bold', 'text-gray-800', 'truncate', 'mb-3');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>title.textContent = startup;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const btnContainer = document.createElement('div');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>btnContainer.classList.add('flex', 'flex-wrap', 'gap-2');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const voteOptions = ['Demo Day Pitch', 'Private Pitch', 'Neither'];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>voteOptions.forEach(option =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const button = document.createElement('button');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>button.textContent = option;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>button.dataset.option = option;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>button.classList.add('btn-select', 'flex-1', 'py-2', 'rounded-full', 'font-medium', 'text-sm', 'border');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (option === 'Demo Day Pitch') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>button.classList.add('bg-indigo-100', 'text-indigo-800', 'hover:bg-indigo-200', 'border-indigo-100');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>} else if (option === 'Private Pitch') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>button.classList.add('bg-purple-100', 'text-purple-800', 'hover:bg-purple-200', 'border-purple-100');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>button.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300', 'border-gray-200');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>button.addEventListener('click', handleSelection);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>btnContainer.appendChild(button);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>card.appendChild(title);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>card.appendChild(btnContainer);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>startupListEl.appendChild(card);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/**</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* Updates the UI to reflect the current selections.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>*/</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function updateUI() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update counters</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>demoDayCountEl.textContent = demoDayPitches.size;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>privatePitchCountEl.textContent = privatePitches.size;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update submit button state</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const demoDayCondition = demoDayPitches.size === 10;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const privatePitchCondition = privatePitches.size === 20;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (demoDayCondition &amp;&amp; privatePitchCondition &amp;&amp; !hasVoted) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitBtn.disabled = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700', 'transform', 'hover:scale-105');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitBtn.disabled = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitBtn.classList.add('bg-gray-400', 'cursor-not-allowed');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700', 'transform', 'hover:scale-105');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Update button styles</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const startupCards = document.querySelectorAll('#startup-list &gt; div');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>startupCards.forEach(card =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const startupName = card.dataset.startup;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const buttons = card.querySelectorAll('.btn-select');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>buttons.forEach(btn =&gt; {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>btn.classList.remove('selected-demo', 'selected-private');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (btn.dataset.option === 'Demo Day Pitch') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.remove('bg-indigo-500', 'text-white');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.add('bg-indigo-100', 'text-indigo-800', 'hover:bg-indigo-200');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>} else if (btn.dataset.option === 'Private Pitch') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.remove('bg-purple-500', 'text-white');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.add('bg-purple-100', 'text-purple-800', 'hover:bg-purple-200');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.remove('bg-gray-500', 'text-white');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>if (hasVoted) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.disabled = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.add('opacity-50', 'cursor-not-allowed');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.disabled = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                            </span>btn.classList.remove('opacity-50', 'cursor-not-allowed');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (demoDayPitches.has(startupName)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const btn = card.querySelector('[data-option="Demo Day Pitch"]');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>btn.classList.add('selected-demo');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>btn.classList.remove('bg-indigo-100', 'text-indigo-800');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else if (privatePitches.has(startupName)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>const btn = card.querySelector('[data-option="Private Pitch"]');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>btn.classList.add('selected-private');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>btn.classList.remove('bg-purple-100', 'text-purple-800');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/**</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* Handles a selection, updating the vote count and UI.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* @param {Event} event The click event.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>*/</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>function handleSelection(event) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (hasVoted) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("You have already submitted your selections.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const button = event.target;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const startupName = button.parentElement.parentElement.dataset.startup;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>const option = button.dataset.option;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Exclusivity check: if a startup is already selected for the other category</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (option === 'Demo Day Pitch' &amp;&amp; privatePitches.has(startupName)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("This startup is already selected for Private Pitch. Please deselect it first.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (option === 'Private Pitch' &amp;&amp; demoDayPitches.has(startupName)) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("This startup is already selected for Demo Day Pitch. Please deselect it first.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Clear existing selections for this startup</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>demoDayPitches.delete(startupName);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>privatePitches.delete(startupName);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>// Add to the correct set based on the new selection</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (option === 'Demo Day Pitch') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (demoDayPitches.size &gt;= 10) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>showMessage("You can only select up to 10 startups for Demo Day.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>demoDayPitches.add(startupName);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} else if (option === 'Private Pitch') {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (privatePitches.size &gt;= 20) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>showMessage("You can only select up to 20 startups for Private Pitch.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>privatePitches.add(startupName);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/**</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* Submits the final selections to Firestore.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>*/</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function handleSubmit() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (hasVoted) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("You have already submitted your selections.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (demoDayPitches.size !== 10 || privatePitches.size !== 20) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("Please select exactly 10 startups for Demo Day and 20 for Private Pitch.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Store the final ballot in a new collection keyed by voter name</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const userVotesRef = doc(db, `/artifacts/${appId}/public/data/final_ballots/${voterName}`);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>await setDoc(userVotesRef, {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>demoDayPitches: Array.from(demoDayPitches),</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>privatePitches: Array.from(privatePitches)</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>});</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>hasVoted = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updateUI();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("Your selections have been submitted successfully!");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.log("Selections submitted:", { demoDayPitches: Array.from(demoDayPitches), privatePitches: Array.from(privatePitches) });</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.error("Error submitting selections: ", e);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage(`Error submitting selections. Please try again. Error: ${e.message}`);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>/**</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>* Handles the "Start Voting" button click.</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">             </span>*/</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function handleStartVoting() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>voterName = voterNameInputEl.value.trim();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>if (!voterName) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage("Please enter your name to begin.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>nameSectionEl.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>loadingSectionEl.classList.remove('hidden');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Check if this name has already voted</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const ballotDocRef = doc(db, `/artifacts/${appId}/public/data/final_ballots/${voterName}`);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const ballotDoc = await getDoc(ballotDocRef);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (ballotDoc.exists()) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>hasVoted = true;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>demoDayPitches = new Set(ballotDoc.data().demoDayPitches);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>privatePitches = new Set(ballotDoc.data().privatePitches);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>showMessage("You have already submitted your ballot. Your selections are displayed below.");</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>hasVoted = false;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Show the main application UI</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>loadingSectionEl.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>appCountersEl.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>startupListEl.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitSectionEl.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>voterNameDisplayEl.textContent = voterName;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>updateUI();</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.error("Error checking name: ", e);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage(`Error checking name. Please try again. Error: ${e.message}`);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>nameSectionEl.classList.remove('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>loadingSectionEl.classList.add('hidden');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Initialization function</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>async function init() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>try {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const app = initializeApp(firebaseConfig);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>db = getFirestore(app);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// Add event listeners</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>startVotingBtn.addEventListener('click', handleStartVoting);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>submitBtn.addEventListener('click', handleSubmit);</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>// This version does not use Firebase Auth, but we sign in anonymously to keep the framework happy</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>const auth = getAuth(app);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>if (initialAuthToken) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>await signInWithCustomToken(auth, initialAuthToken);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                        </span>await signInAnonymously(auth);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>} catch (e) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>console.error("Error during initialization:", e);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>showMessage(`Initialization Error: ${e.message}`);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>// Initial render and setup</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>renderStartups();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>init();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>})();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+<body class="p-4 sm:p-8 flex items-center justify-center min-h-screen">
+    <div class="container mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10 border border-gray-200">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-2">Startup Allocation Ballot</h1>
+            <p class="text-gray-600 text-base sm:text-lg">Select exactly 10 for Demo Day and 20 for Private Pitch.</p>
+        </header>
+
+        <!-- Name Input and Validation -->
+        <div id="name-section" class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <input id="voter-name-input" type="text" placeholder="Enter your name" class="flex-1 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+            <button id="start-voting-btn" class="px-6 py-3 bg-indigo-600 text-white font-bold rounded-full shadow-lg hover:bg-indigo-700 transition duration-300">Start Voting</button>
+        </div>
+        <div id="loading-section" class="text-center italic hidden">Checking name...</div>
+
+        <!-- User Info & Counters -->
+        <div id="app-counters" class="flex flex-col sm:flex-row justify-between items-center bg-gray-100 rounded-xl p-4 mb-6 shadow-inner hidden">
+            <div id="user-info" class="text-xs text-gray-500 mb-2 sm:mb-0">
+                <p>Authenticated as: <span id="voter-name-display" class="font-semibold"></span></p>
+            </div>
+            <div class="flex space-x-4">
+                <div class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full text-sm">
+                    Demo Day: <span id="demo-day-count">0</span> / 10
+                </div>
+                <div class="bg-purple-600 text-white font-bold py-2 px-4 rounded-full text-sm">
+                    Private Pitch: <span id="private-pitch-count">0</span> / 20
+                </div>
+            </div>
+        </div>
+
+        <!-- Startup List Container -->
+        <div id="startup-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 hidden">
+            <!-- Startups will be rendered here by JavaScript -->
+        </div>
+
+        <!-- Submit Button -->
+        <div id="submit-section" class="flex justify-center mb-8 hidden">
+            <button id="submit-btn" disabled
+                class="w-full sm:w-auto px-8 py-4 bg-gray-400 text-white font-bold text-lg rounded-full shadow-lg cursor-not-allowed">
+                Submit Selections
+            </button>
+        </div>
+
+        <!-- Message Box for user feedback -->
+        <div id="message-box" class="fixed inset-0 bg-gray-900 bg-opacity-50 hidden items-center justify-center p-4" onclick="this.classList.add('hidden')">
+            <div class="bg-white p-6 rounded-xl shadow-2xl text-center max-w-sm w-full transform scale-95 transition-transform duration-300" onclick="event.stopPropagation()">
+                <p id="message-text" class="text-lg font-medium text-gray-700 mb-4"></p>
+                <button onclick="document.getElementById('message-box').classList.add('hidden')" class="px-6 py-2 bg-indigo-600 text-white rounded-full font-semibold hover:bg-indigo-700">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // IMPORTANT: Replace the placeholder below with your actual Firebase config object
+        // You can find this in your Firebase console under Project Settings > Your apps.
+        const firebaseConfig = {
+        apiKey: "AIzaSyB3eQjDm-90XRwcekCrip1QJG56nbEpkMU",
+        authDomain: "startup-voting-application.firebaseapp.com",
+        projectId: "startup-voting-application",
+        storageBucket: "startup-voting-application.firebasestorage.app",
+        messagingSenderId: "920845970735",
+        appId: "1:920845970735:web:d31d6850da12f8c31285da"
+        };
+
+        // --- DO NOT EDIT BELOW THIS LINE ---
+        
+        // Global variables provided by the Canvas environment
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        // Use a self-invoking function to avoid global variable pollution
+        (async function() {
+            // Define the list of 50 startups
+            const startups = [];
+            for (let i = 1; i <= 50; i++) {
+                startups.push(`Startup ${i}`);
+            }
+
+            // Get DOM elements
+            const nameSectionEl = document.getElementById('name-section');
+            const voterNameInputEl = document.getElementById('voter-name-input');
+            const startVotingBtn = document.getElementById('start-voting-btn');
+            const loadingSectionEl = document.getElementById('loading-section');
+            const appCountersEl = document.getElementById('app-counters');
+            const voterNameDisplayEl = document.getElementById('voter-name-display');
+            const startupListEl = document.getElementById('startup-list');
+            const submitSectionEl = document.getElementById('submit-section');
+            const submitBtn = document.getElementById('submit-btn');
+            const demoDayCountEl = document.getElementById('demo-day-count');
+            const privatePitchCountEl = document.getElementById('private-pitch-count');
+            const messageBoxEl = document.getElementById('message-box');
+            const messageTextEl = document.getElementById('message-text');
+
+            let db;
+            let voterName = '';
+            let demoDayPitches = new Set();
+            let privatePitches = new Set();
+            let hasVoted = false;
+
+            /**
+             * Displays a message box with the given text.
+             * @param {string} message The message to display.
+             */
+            function showMessage(message) {
+                messageTextEl.textContent = message;
+                messageBoxEl.classList.remove('hidden');
+                messageBoxEl.classList.add('flex');
+            }
+
+            /**
+             * Renders the list of startups with selection buttons.
+             */
+            function renderStartups() {
+                startupListEl.innerHTML = '';
+                startups.forEach(startup => {
+                    const card = document.createElement('div');
+                    card.classList.add('bg-white', 'p-4', 'rounded-xl', 'shadow-md', 'border', 'border-gray-200', 'flex', 'flex-col', 'justify-between');
+                    card.dataset.startup = startup;
+
+                    const title = document.createElement('h3');
+                    title.classList.add('text-lg', 'font-bold', 'text-gray-800', 'truncate', 'mb-3');
+                    title.textContent = startup;
+
+                    const btnContainer = document.createElement('div');
+                    btnContainer.classList.add('flex', 'flex-wrap', 'gap-2');
+
+                    const voteOptions = ['Demo Day Pitch', 'Private Pitch', 'Neither'];
+                    voteOptions.forEach(option => {
+                        const button = document.createElement('button');
+                        button.textContent = option;
+                        button.dataset.option = option;
+                        button.classList.add('btn-select', 'flex-1', 'py-2', 'rounded-full', 'font-medium', 'text-sm', 'border');
+
+                        if (option === 'Demo Day Pitch') {
+                            button.classList.add('bg-indigo-100', 'text-indigo-800', 'hover:bg-indigo-200', 'border-indigo-100');
+                        } else if (option === 'Private Pitch') {
+                            button.classList.add('bg-purple-100', 'text-purple-800', 'hover:bg-purple-200', 'border-purple-100');
+                        } else {
+                            button.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300', 'border-gray-200');
+                        }
+
+                        button.addEventListener('click', handleSelection);
+                        btnContainer.appendChild(button);
+                    });
+
+                    card.appendChild(title);
+                    card.appendChild(btnContainer);
+                    startupListEl.appendChild(card);
+                });
+            }
+
+            /**
+             * Updates the UI to reflect the current selections.
+             */
+            function updateUI() {
+                // Update counters
+                demoDayCountEl.textContent = demoDayPitches.size;
+                privatePitchCountEl.textContent = privatePitches.size;
+
+                // Update submit button state
+                const demoDayCondition = demoDayPitches.size === 10;
+                const privatePitchCondition = privatePitches.size === 20;
+
+                if (demoDayCondition && privatePitchCondition && !hasVoted) {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('bg-gray-400', 'cursor-not-allowed');
+                    submitBtn.classList.add('bg-indigo-600', 'hover:bg-indigo-700', 'transform', 'hover:scale-105');
+                } else {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('bg-gray-400', 'cursor-not-allowed');
+                    submitBtn.classList.remove('bg-indigo-600', 'hover:bg-indigo-700', 'transform', 'hover:scale-105');
+                }
+
+                // Update button styles
+                const startupCards = document.querySelectorAll('#startup-list > div');
+                startupCards.forEach(card => {
+                    const startupName = card.dataset.startup;
+                    const buttons = card.querySelectorAll('.btn-select');
+                    
+                    buttons.forEach(btn => {
+                        btn.classList.remove('selected-demo', 'selected-private');
+                        if (btn.dataset.option === 'Demo Day Pitch') {
+                            btn.classList.remove('bg-indigo-500', 'text-white');
+                            btn.classList.add('bg-indigo-100', 'text-indigo-800', 'hover:bg-indigo-200');
+                        } else if (btn.dataset.option === 'Private Pitch') {
+                            btn.classList.remove('bg-purple-500', 'text-white');
+                            btn.classList.add('bg-purple-100', 'text-purple-800', 'hover:bg-purple-200');
+                        } else {
+                            btn.classList.remove('bg-gray-500', 'text-white');
+                            btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                        }
+
+                        if (hasVoted) {
+                            btn.disabled = true;
+                            btn.classList.add('opacity-50', 'cursor-not-allowed');
+                        } else {
+                            btn.disabled = false;
+                            btn.classList.remove('opacity-50', 'cursor-not-allowed');
+                        }
+                    });
+
+                    if (demoDayPitches.has(startupName)) {
+                        const btn = card.querySelector('[data-option="Demo Day Pitch"]');
+                        btn.classList.add('selected-demo');
+                        btn.classList.remove('bg-indigo-100', 'text-indigo-800');
+                    } else if (privatePitches.has(startupName)) {
+                        const btn = card.querySelector('[data-option="Private Pitch"]');
+                        btn.classList.add('selected-private');
+                        btn.classList.remove('bg-purple-100', 'text-purple-800');
+                    }
+                });
+            }
+
+            /**
+             * Handles a selection, updating the vote count and UI.
+             * @param {Event} event The click event.
+             */
+            function handleSelection(event) {
+                if (hasVoted) {
+                    showMessage("You have already submitted your selections.");
+                    return;
+                }
+                const button = event.target;
+                const startupName = button.parentElement.parentElement.dataset.startup;
+                const option = button.dataset.option;
+                
+                // Exclusivity check: if a startup is already selected for the other category
+                if (option === 'Demo Day Pitch' && privatePitches.has(startupName)) {
+                    showMessage("This startup is already selected for Private Pitch. Please deselect it first.");
+                    return;
+                } else if (option === 'Private Pitch' && demoDayPitches.has(startupName)) {
+                    showMessage("This startup is already selected for Demo Day Pitch. Please deselect it first.");
+                    return;
+                }
+
+                // Clear existing selections for this startup
+                demoDayPitches.delete(startupName);
+                privatePitches.delete(startupName);
+
+                // Add to the correct set based on the new selection
+                if (option === 'Demo Day Pitch') {
+                    if (demoDayPitches.size >= 10) {
+                        showMessage("You can only select up to 10 startups for Demo Day.");
+                        updateUI();
+                        return;
+                    }
+                    demoDayPitches.add(startupName);
+                } else if (option === 'Private Pitch') {
+                    if (privatePitches.size >= 20) {
+                        showMessage("You can only select up to 20 startups for Private Pitch.");
+                        updateUI();
+                        return;
+                    }
+                    privatePitches.add(startupName);
+                }
+
+                updateUI();
+            }
+
+            /**
+             * Submits the final selections to Firestore.
+             */
+            async function handleSubmit() {
+                if (hasVoted) {
+                    showMessage("You have already submitted your selections.");
+                    return;
+                }
+                if (demoDayPitches.size !== 10 || privatePitches.size !== 20) {
+                    showMessage("Please select exactly 10 startups for Demo Day and 20 for Private Pitch.");
+                    return;
+                }
+
+                try {
+                    // Store the final ballot in a new collection keyed by voter name
+                    const userVotesRef = doc(db, `/artifacts/${appId}/public/data/final_ballots/${voterName}`);
+                    await setDoc(userVotesRef, {
+                        demoDayPitches: Array.from(demoDayPitches),
+                        privatePitches: Array.from(privatePitches)
+                    });
+
+                    hasVoted = true;
+                    updateUI();
+                    showMessage("Your selections have been submitted successfully!");
+                    console.log("Selections submitted:", { demoDayPitches: Array.from(demoDayPitches), privatePitches: Array.from(privatePitches) });
+
+                } catch (e) {
+                    console.error("Error submitting selections: ", e);
+                    showMessage(`Error submitting selections. Please try again. Error: ${e.message}`);
+                }
+            }
+            
+            /**
+             * Handles the "Start Voting" button click.
+             */
+            async function handleStartVoting() {
+                voterName = voterNameInputEl.value.trim();
+                if (!voterName) {
+                    showMessage("Please enter your name to begin.");
+                    return;
+                }
+
+                nameSectionEl.classList.add('hidden');
+                loadingSectionEl.classList.remove('hidden');
+
+                try {
+                    // Check if this name has already voted
+                    const ballotDocRef = doc(db, `/artifacts/${appId}/public/data/final_ballots/${voterName}`);
+                    const ballotDoc = await getDoc(ballotDocRef);
+                    
+                    if (ballotDoc.exists()) {
+                        hasVoted = true;
+                        demoDayPitches = new Set(ballotDoc.data().demoDayPitches);
+                        privatePitches = new Set(ballotDoc.data().privatePitches);
+                        showMessage("You have already submitted your ballot. Your selections are displayed below.");
+                    } else {
+                        hasVoted = false;
+                    }
+
+                    // Show the main application UI
+                    loadingSectionEl.classList.add('hidden');
+                    appCountersEl.classList.remove('hidden');
+                    startupListEl.classList.remove('hidden');
+                    submitSectionEl.classList.remove('hidden');
+                    voterNameDisplayEl.textContent = voterName;
+                    
+                    updateUI();
+
+                } catch (e) {
+                    console.error("Error checking name: ", e);
+                    showMessage(`Error checking name. Please try again. Error: ${e.message}`);
+                    nameSectionEl.classList.remove('hidden');
+                    loadingSectionEl.classList.add('hidden');
+                }
+            }
+
+            // Initialization function
+            async function init() {
+                try {
+                    const app = initializeApp(firebaseConfig);
+                    db = getFirestore(app);
+
+                    // Add event listeners
+                    startVotingBtn.addEventListener('click', handleStartVoting);
+                    submitBtn.addEventListener('click', handleSubmit);
+
+                    // This version does not use Firebase Auth, but we sign in anonymously to keep the framework happy
+                    const auth = getAuth(app);
+                    if (initialAuthToken) {
+                        await signInWithCustomToken(auth, initialAuthToken);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+
+                } catch (e) {
+                    console.error("Error during initialization:", e);
+                    showMessage(`Initialization Error: ${e.message}`);
+                }
+            }
+            
+            // Initial render and setup
+            renderStartups();
+            init();
+        })();
+    </script>
 </body>
 </html>
