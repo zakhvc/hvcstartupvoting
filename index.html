@@ -99,13 +99,12 @@
         messagingSenderId: "920845970735",
         appId: "1:920845970735:web:d31d6850da12f8c31285da"
         };
-
+        
         // --- DO NOT EDIT BELOW THIS LINE ---
         
         // Global variables provided by the Canvas environment
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
-
+        const appId = firebaseConfig.projectId;
+        
         // Use a self-invoking function to avoid global variable pollution
         (async function() {
             // Define the list of 50 startups
@@ -250,52 +249,6 @@
             }
 
             /**
-             * Handles a selection, updating the vote count and UI.
-             * @param {Event} event The click event.
-             */
-            function handleSelection(event) {
-                if (hasVoted) {
-                    showMessage("You have already submitted your selections.");
-                    return;
-                }
-                const button = event.target;
-                const startupName = button.parentElement.parentElement.dataset.startup;
-                const option = button.dataset.option;
-                
-                // Exclusivity check: if a startup is already selected for the other category
-                if (option === 'Demo Day Pitch' && privatePitches.has(startupName)) {
-                    showMessage("This startup is already selected for Private Pitch. Please deselect it first.");
-                    return;
-                } else if (option === 'Private Pitch' && demoDayPitches.has(startupName)) {
-                    showMessage("This startup is already selected for Demo Day Pitch. Please deselect it first.");
-                    return;
-                }
-
-                // Clear existing selections for this startup
-                demoDayPitches.delete(startupName);
-                privatePitches.delete(startupName);
-
-                // Add to the correct set based on the new selection
-                if (option === 'Demo Day Pitch') {
-                    if (demoDayPitches.size >= 10) {
-                        showMessage("You can only select up to 10 startups for Demo Day.");
-                        updateUI();
-                        return;
-                    }
-                    demoDayPitches.add(startupName);
-                } else if (option === 'Private Pitch') {
-                    if (privatePitches.size >= 20) {
-                        showMessage("You can only select up to 20 startups for Private Pitch.");
-                        updateUI();
-                        return;
-                    }
-                    privatePitches.add(startupName);
-                }
-
-                updateUI();
-            }
-
-            /**
              * Submits the final selections to Firestore.
              */
             async function handleSubmit() {
@@ -374,34 +327,9 @@
             // Initialization function
             async function init() {
                 try {
-                    // IMPORTANT: Replace the placeholder below with your actual Firebase config object
-                    // You can find this in your Firebase console under Project Settings > Your apps.
-                    const firebaseConfig = {
-                    apiKey: "AIzaSyB3eQjDm-90XRwcekCrip1QJG56nbEpkMU",
-                    authDomain: "startup-voting-application.firebaseapp.com",
-                    projectId: "startup-voting-application",
-                    storageBucket: "startup-voting-application.firebasestorage.app",
-                    messagingSenderId: "920845970735",
-                    appId: "1:920845970735:web:d31d6850da12f8c31285da"
-                    };
-
-                    const app = initializeApp(firebaseConfig);
-                    db = getFirestore(app);
-
-                    // Add event listeners
-                    startVotingBtn.addEventListener('click', handleStartVoting);
-                    submitBtn.addEventListener('click', handleSubmit);
-
                     // This version does not use Firebase Auth, but we sign in anonymously to keep the framework happy
                     const auth = getAuth(app);
-                    const appId = 'default-app-id'; // Fallback for demonstration
-                    const initialAuthToken = 'default-token'; // Fallback for demonstration
-                    
-                    if (initialAuthToken !== 'default-token') {
-                        await signInWithCustomToken(auth, initialAuthToken);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
+                    await signInAnonymously(auth);
 
                 } catch (e) {
                     console.error("Error during initialization:", e);
