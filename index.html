@@ -93,12 +93,12 @@
         // IMPORTANT: Replace the placeholder below with your actual Firebase config object
         // You can find this in your Firebase console under Project Settings > Your apps.
         const firebaseConfig = {
-        apiKey: "AIzaSyB3eQjDm-90XRwcekCrip1QJG56nbEpkMU",
-        authDomain: "startup-voting-application.firebaseapp.com",
-        projectId: "startup-voting-application",
-        storageBucket: "startup-voting-application.firebasestorage.app",
-        messagingSenderId: "920845970735",
-        appId: "1:920845970735:web:d31d6850da12f8c31285da"
+          apiKey: "AIzaSyB3eQjDm-90XRwcekCrip1QJG56nbEpkMU",
+          authDomain: "startup-voting-application.firebaseapp.com",
+          projectId: "startup-voting-application",
+          storageBucket: "startup-voting-application.firebasestorage.app",
+          messagingSenderId: "920845970735",
+          appId: "1:920845970735:web:d31d6850da12f8c31285da"
         };
 
         // --- DO NOT EDIT BELOW THIS LINE ---
@@ -375,6 +375,17 @@
             // Initialization function
             async function init() {
                 try {
+                    // IMPORTANT: Replace the placeholder below with your actual Firebase config object
+                    // You can find this in your Firebase console under Project Settings > Your apps.
+                    const firebaseConfig = {
+                    apiKey: "AIzaSyB3eQjDm-90XRwcekCrip1QJG56nbEpkMU",
+                    authDomain: "startup-voting-application.firebaseapp.com",
+                    projectId: "startup-voting-application",
+                    storageBucket: "startup-voting-application.firebasestorage.app",
+                    messagingSenderId: "920845970735",
+                    appId: "1:920845970735:web:d31d6850da12f8c31285da"
+                    };
+
                     const app = initializeApp(firebaseConfig);
                     db = getFirestore(app);
 
@@ -384,7 +395,10 @@
 
                     // This version does not use Firebase Auth, but we sign in anonymously to keep the framework happy
                     const auth = getAuth(app);
-                    if (initialAuthToken) {
+                    const appId = 'default-app-id'; // Fallback for demonstration
+                    const initialAuthToken = 'default-token'; // Fallback for demonstration
+                    
+                    if (initialAuthToken !== 'default-token') {
                         await signInWithCustomToken(auth, initialAuthToken);
                     } else {
                         await signInAnonymously(auth);
